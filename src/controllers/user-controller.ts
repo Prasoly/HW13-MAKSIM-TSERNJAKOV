@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { faker } from '@faker-js/faker';
+import {StatusCodes} from "http-status-codes";
 
 const router = Router();
 
@@ -38,7 +39,7 @@ router.post('/', (req: Request, res: Response) => {
     users.push(newUser);
 
     console.log('Adding a new user', newUser);
-    res.status(201).json(newUser);
+    res.status(StatusCodes.CREATED).json(newUser);
 });
 
 // Get user by ID
@@ -52,7 +53,7 @@ router.get('/:id', (req: Request, res: Response) => {
         res.json(user);
     } else {
         console.log(`User with ID: ${req.params.id} not found`);
-        res.status(404).json({ message: 'User not found' });
+        res.status(StatusCodes.NOT_FOUND).json({ message: 'User not found' });
     }
 });
 
@@ -69,7 +70,7 @@ router.delete('/:id', (req: Request, res: Response) => {
         res.json(deletedUser[0]);
     } else {
         console.log(`User with ID: ${req.params.id} not found`);
-        res.status(404).json({ message: 'User not found' });
+        res.status(StatusCodes.NOT_FOUND).json({ message: 'User not found' });
     }
 });
 

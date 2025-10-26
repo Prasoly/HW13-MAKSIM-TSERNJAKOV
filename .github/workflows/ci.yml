@@ -32,3 +32,9 @@ jobs:
 
       - name: Run tests
         run: npx playwright test
+
+      - name: Run empty user controller tests
+        run: npx playwright test tests/no_users_controllers.spec.ts
+
+      - name: Run user controller tests
+        run: npx playwright test tests/user_controller.spec.ts
