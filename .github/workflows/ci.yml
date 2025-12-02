@@ -33,9 +33,6 @@ jobs:
         with:
          compose-file: ./docker-compose.yaml
          up-flags: -d
-
-      - name: Run tests with correct users
-        run: npx playwright test tests/DTO/user-controller.test.ts
       - name: Run tests
         run: npx playwright test
 
