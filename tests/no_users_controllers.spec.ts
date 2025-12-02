@@ -5,11 +5,11 @@ const baseURLWithEndpoint = "http://localhost:3000/users";
 
 
 test("should return empty array when no users exist", async ({ request }) => {
-    const response = await request.get(baseURLWithEndpoint);
-    expect(response.status()).toBe(StatusCodes.OK);
+    const response = await request.get("http://localhost:3000/users");
+    expect(response.status()).toBe(200);
 
     const responseBody = await response.text();
-    expect(JSON.parse(responseBody)).toBe([]);
+    expect(JSON.parse(responseBody)).toStrictEqual([]);
 });
 
 test("should return 404 if deleting non-existent user", async ({ request }) => {
