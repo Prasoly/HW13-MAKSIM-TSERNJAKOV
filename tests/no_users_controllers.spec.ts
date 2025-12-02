@@ -9,7 +9,7 @@ test("should return empty array when no users exist", async ({ request }) => {
     expect(response.status()).toBe(StatusCodes.OK);
 
     const responseBody = await response.text();
-    expect(JSON.parse(responseBody)).toEqual([]);
+    expect(JSON.parse(responseBody)).toBe([]);
 });
 
 test("should return 404 if deleting non-existent user", async ({ request }) => {
